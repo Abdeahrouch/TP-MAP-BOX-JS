@@ -5,13 +5,12 @@
 }
 
 
-
 #map {
-  height: 500px;
   height: 100vh;
   background-color: gray;
-}
+  }
 
+  
 .form-container {
   position: fixed;
   top: 0;

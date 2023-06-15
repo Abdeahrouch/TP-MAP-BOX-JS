@@ -12,6 +12,7 @@ import config from "../../app.config.json";
 
 import mapboxgl from "mapbox-gl";
 
+import "mapbox-gl/dist/mapbox-gl.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Importer le fichier CSS
@@ -22,9 +23,7 @@ class App {
   // Propriétés
 
   elDivMap; // container de la map
-
   map; // instance de la map
-
   form;
 
   start() {
@@ -49,7 +48,7 @@ class App {
     this.map = new mapboxgl.Map({
       container: this.elDivMap, // l'ID du container
 
-      style: config.apis.mapbox_gl.map_styles.satellite_streets, // le lien URL du style
+      style: config.apis.mapbox_gl.map_styles.streets, // le lien URL du style
 
       center: [2.79, 42.68], // Les coordonnées [long, lat] de la position de départ
 
@@ -69,11 +68,8 @@ class App {
     // --- MAP ---
 
     this.elDivMap = document.createElement("div");
-
     this.elDivMap.id = "map";
-
     this.elDivMap.classList.add("map-container"); // Ajout de la classe pour la hauteur de la carte
-
     document.body.appendChild(this.elDivMap);
   }
 
@@ -85,17 +81,14 @@ class App {
     // Pour avoir la latitude et la longitude
 
     const latitude = evt.lngLat.lat;
-
     const longitude = evt.lngLat.lng;
 
     console.log(evt.lngLat.lat);
-
     console.log(evt.lngLat.lng);
 
     // Assigner les valeurs aux champs de latitude et de longitude du formulaire
 
     this.form.elLat.value = latitude;
-
     this.form.elLon.value = longitude;
   }
 
@@ -103,9 +96,7 @@ class App {
 
   addFormulaire() {
     this.form = new Form();
-
     this.form.createDom();
-
     this.form.onSubmit(this.handleFormSubmit.bind(this));
   }
 
@@ -115,13 +106,9 @@ class App {
     event.preventDefault();
 
     // Récupérer les valeurs du formulaire
-
     const title = this.form.elTitle.value;
-
     const description = this.form.elDescription.value;
-
     const latitude = this.form.elLat.value;
-
     const longitude = this.form.elLon.value;
 
     // Créer un nouveau marqueur
@@ -143,7 +130,7 @@ class App {
     this.form.reset();
 
     // Forcer la carte à se redimensionner
-    this.map.resize();
+    // this.map.resize();
   }
 }
 
@@ -151,19 +138,12 @@ class Form {
   // Propriétés des éléments du DOM
 
   elTitle;
-
   elDescription;
-
   elDebut;
-
   elFin;
-
   elLat;
-
   elLon;
-
   elBtnAdd;
-
   elBtnSupprimer;
 
   // Méthode qui crée le formulaire
@@ -182,101 +162,67 @@ class Form {
     // Création du titre
 
     const titleLabel = document.createElement("label");
-
     titleLabel.textContent = "Titre de l'événement :";
-
     this.elTitle = document.createElement("input");
-
     form.appendChild(titleLabel);
-
     form.appendChild(this.elTitle);
 
     // Création de la description
 
     const descriptionLabel = document.createElement("label");
-
     descriptionLabel.textContent = "Description de l'événement :";
-
     this.elDescription = document.createElement("textarea");
-
     form.appendChild(descriptionLabel);
-
     form.appendChild(this.elDescription);
 
     // Création du champ de date de début
 
     const startDateLabel = document.createElement("label");
-
     startDateLabel.textContent = "Date de début :";
-
     this.elDebut = document.createElement("input");
-
     this.elDebut.type = "datetime-local";
-
     form.appendChild(startDateLabel);
-
     form.appendChild(this.elDebut);
 
     // Création du champ de date de fin
 
     const endDateLabel = document.createElement("label");
-
     endDateLabel.textContent = "Date de fin :";
-
     this.elFin = document.createElement("input");
-
     this.elFin.type = "datetime-local";
-
     form.appendChild(endDateLabel);
-
     form.appendChild(this.elFin);
 
     // Création du champ de latitude
 
     const latitudeLabel = document.createElement("label");
-
     latitudeLabel.textContent = "Latitude :";
-
     this.elLat = document.createElement("input");
-
     this.elLat.type = "number";
-
     form.appendChild(latitudeLabel);
-
     form.appendChild(this.elLat);
 
     // Création du champ de longitude
 
     const longitudeLabel = document.createElement("label");
-
     longitudeLabel.textContent = "Longitude :";
-
     this.elLon = document.createElement("input");
-
     this.elLon.type = "number";
-
     form.appendChild(longitudeLabel);
-
     form.appendChild(this.elLon);
 
     // Ajout de bouton Ajouter
 
     this.elBtnAdd = document.createElement("button");
-
     this.elBtnAdd.textContent = "Ajouter";
-
     this.elBtnAdd.classList.add("btn", "btn-success");
-
     form.appendChild(this.elBtnAdd);
 
     // Ajout de  bouton Supprimer
 
     this.elBtnSupprimer = document.createElement("button");
-
     this.elBtnSupprimer.textContent = "Supprimer";
-
     this.elBtnSupprimer.classList.add("btn", "btn-danger");
-
     form.appendChild(this.elBtnSupprimer);
 
     // Ajout du formulaire à la div
@@ -292,15 +238,10 @@ class Form {
 
   reset() {
     this.elTitle.value = "";
-
     this.elDescription.value = "";
-
     this.elDebut.value = "";
-
     this.elFin.value = "";
-
     this.elLat.value = "";
-
     this.elLon.value = "";
   }
 
@@ -311,8 +252,5 @@ class Form {
   }
 }
 
-export default App;
-
 const app = new App();
-
-app.start();
+export default app;
