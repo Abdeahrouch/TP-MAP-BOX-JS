@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+#map {
+  height: 500px;
+  height: 100vh;
+  background-color: gray;
+}
+
+.form-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  background-color: #c4bcb8;
+  padding: 10px;
+  z-index: 100;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: -2px -2px #E5E5E5;
+  border: none;
+  font-size: 20px;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
+
+button {
+  font-size: 13px;
+  margin-left: 100px;
+  display: flex;
+  margin-top: 15px;
+}
+
+input[type="datetime-local"] {
+  font-size: 15px;
+  height: 30px;
+  padding: 5px;
+}
+
+.mapboxgl-ctrl-top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.mapboxgl-ctrl-top-right {
+  display: none;
+}
