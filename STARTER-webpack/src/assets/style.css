@@ -10,7 +10,7 @@
   background-color: gray;
   }
 
-  
+
 .form-container {
   position: fixed;
   top: 0;
@@ -64,3 +64,4 @@ input[type="datetime-local"] {
 .mapboxgl-ctrl-top-right {
   display: none;
 }
+
