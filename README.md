@@ -11,6 +11,7 @@ Si ce n'est pas le cas, vous pouvez le télécharger à partir de lando.dev.
 
 Pour demarer Lando:
  lando start
+ 
 Pour  démarrer l'application.
  lando npm start 
   
