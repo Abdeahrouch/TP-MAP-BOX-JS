@@ -9,9 +9,10 @@ Suivez ces étapes pour démarrer le projet dans l'environnement Lando après l'
 Installation de Lando : Assurez-vous d'avoir Lando installé sur votre machine.
 Si ce n'est pas le cas, vous pouvez le télécharger à partir de lando.dev.
 
+1-
 Pour demarer Lando:
  lando start
- 
+2-
 Pour  démarrer l'application.
  lando npm start 
   
