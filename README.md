@@ -14,6 +14,6 @@ Pour demarer Lando:
  lando start
  
 2-
-Pour  démarrer l'application.
+Pour  démarrer l'application:
  lando npm start 
   
